@@ -98,12 +98,7 @@ int main()
                     }
                     break;
                 case 5:
-                    if(ll_isEmpty(listaParticipantes)==0)
-                    {
-                        controller_ContarParticipantesPuntajeMenor(listaParticipantes);
-                    }else{
-                         printf("\nError. No hay concursantes cargados.\n");
-                    }
+
                     break;
                 case 6:
 

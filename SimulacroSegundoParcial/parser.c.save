@@ -28,7 +28,9 @@ int parser_eParticipantFromText(FILE* pFile , LinkedList* pArrayListeParticipant
     if(pFile!=NULL)
     {
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",numConcursanteAux,anioNacimientoAux,nombreAux,dniAux,fechaPresentacion,temaPresentacionAux,puntajePimeraRondaAux);
+        printf("pase primer fscanf del parser");
         do{
+            printf("entre al do del parser");
             fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",numConcursanteAux,anioNacimientoAux,nombreAux,dniAux,fechaPresentacion,temaPresentacionAux,puntajePimeraRondaAux);
             participante = eParticipant_newParametros(numConcursanteAux,anioNacimientoAux,nombreAux,dniAux,fechaPresentacion,temaPresentacionAux,puntajePimeraRondaAux);
             ll_add(pArrayListeParticipant,participante);

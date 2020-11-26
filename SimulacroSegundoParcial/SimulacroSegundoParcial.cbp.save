@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="controller.h" />
+		<Unit filename="funcionesAuxiliares.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcionesAuxiliares.h" />
 		<Unit filename="inputs.c">
 			<Option compilerVar="CC" />
 		</Unit>

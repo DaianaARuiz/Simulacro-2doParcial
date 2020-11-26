@@ -285,8 +285,8 @@ void eParticipant_showOneeParticipant2daRonda(eParticipant* participante)
         eParticipant_getPuntajePrimeraRonda(participante,&puntajePrimeraRonda);
         eParticipant_getPuntajeSegundaRonda(participante,&puntajeSegundaRonda);
         //eParticipant_getPromedioPuntaje(participante,&promedio);
-        //printf("\n %d %7d %10s %15d %20s %25s %15d %20d %20f\n",numeroConcursante,anioNacimiento,nombre,dni,fechaPresentacion,temaPresentacion,puntajePrimeraRonda,puntajeSegundaRonda,promedio);
-        printf("\n %d %7d %10s %15d %20s %25s %15d %20d \n",numeroConcursante,anioNacimiento,nombre,dni,fechaPresentacion,temaPresentacion,puntajePrimeraRonda,puntajeSegundaRonda);
+        printf("\n %d %7d %10s %15d %20s %25s %15d %20d %20f\n",numeroConcursante,anioNacimiento,nombre,dni,fechaPresentacion,temaPresentacion,puntajePrimeraRonda,puntajeSegundaRonda,promedio);
+        //printf("\n %d %7d %10s %15d %20s %25s %15d %20d \n",numeroConcursante,anioNacimiento,nombre,dni,fechaPresentacion,temaPresentacion,puntajePrimeraRonda,puntajeSegundaRonda);
     }
 }
 

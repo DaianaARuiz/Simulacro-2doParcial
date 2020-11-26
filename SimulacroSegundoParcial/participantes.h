@@ -1,122 +1,162 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include "inputs.h"
+//#include "funcionesAuxiliares.h"
 
-void inputs_getAndValidateInt(int* input, char message[],char eMessage1[],char eMessage2[], int lowLimit, int hiLimit)
+#ifndef employee_H_INCLUDED
+#define employee_H_INCLUDED
+
+typedef struct
 {
-    char bufferNumStr[200];
-    int bufferNum;
+    int numeroConcursante;
+    int anioNacimiento;
+    char nombre[51];
+    int dni;
+    char fechaPresentacion[15];
+    char temaPresentacion[51];
+    int puntajePrimeraRonda;
+    int puntajeSegundaRonda;
+    float promedioPuntaje;
 
-    printf("%s", message);
-    fflush(stdin);
-    scanf("%s", bufferNumStr);
+}eParticipant;
 
-    while(inputs_validateNumber(bufferNumStr)==0)
-    {
-        printf("%s", eMessage1);
-        fflush(stdin);
-        scanf("%s", bufferNumStr);
-    }
-
-    bufferNum=atoi(bufferNumStr);
-    while(inputs_validarRangoEntero(bufferNum,lowLimit,hiLimit)==0)
-    {
-        printf("%s", eMessage2);
-        fflush(stdin);
-        scanf("%d", &bufferNum);
-    }
-    *input=bufferNum;
-}
-
-int inputs_validarRangoEntero(int dato,int lowLimit ,int hiLimit)
-{
-    int valido=1;
-
-    if(dato<lowLimit || dato>hiLimit)
-    {
-       valido=0;
-    }
-
-    return valido;
-}
+/** \brief Reserva espacio en memoria dinamica para una estructura del tipo eParticipant
+ *
+ * \return eParticipant*
+ *
+ */eParticipant* eParticipant_new();
 
 
-int inputs_validateNumber(char* numberStr)
-{
-    int valido=1;
-    for(int i=0;i<strlen(numberStr);i++)
-    {
-	  if(numberStr[i] < '0' || numberStr[i] > '9')
-	  {
-		  valido=0;
-	  }
-    }
-   return valido;
-}
+/** \brief
+ *
+ * \param numConcursanteAux char*
+ * \param nombreAux char*
+ * \param anioNacimientoAux char*
+ * \param dniAux char*
+ * \param temaPresentacionAux char*
+ * \param puntajePimeraRondaAux char*
+ * \return eParticipant*
+ *
+ */eParticipant* eParticipant_newParametros(char* ,char* ,char* ,char* , char* ,char*,char*);
 
 
-int inputs_isValidName(char* cadena,int length)
-{
-    int retorno=1;
-    if(cadena !=NULL && length>0)
-    {
-        for(int i=0; cadena[i]!='\0' && i<length; i++)
-        {
-            if( (cadena[i]<'A' || cadena[i]>'Z') && (cadena[i]<'a' || cadena[i]>'z') && cadena[i] != ' ' && cadena[i] != '-' )
-            {
-                retorno=0;
-            }
-        }
-    }
-    return retorno;
-}
 
-void inputs_PedirNombre(char texto[],char textoError[],int max, char input[])
-{
-    char auxiliar[500];
+void eParticipant_delete();
 
-    printf("%s", texto);
-    fflush(stdin);
-    scanf("%[^\n]",auxiliar);
-    while(!inputs_isValidName(auxiliar,max)|| strlen(auxiliar)>max-1)
-    {
-        printf("%s", textoError);
-        fflush(stdin);
-        scanf("%[^\n]",auxiliar);
-    }
-     strcpy(input,auxiliar);
-}
+/** \brief  Setea el valor del atributo id de la entidad eParticipant
+ *
+ * \param  eParticipant*
+ * \param id int Valor a asignar al id.
+ * \return int Retorna [1] si se pudo setear el valor [0] en caso de que no
+ *
+ */int eParticipant_setId(eParticipant* ,int);
 
-int inputs_isValidNameArchive(char* cadena,int length)
-{
-    int retorno=1;
-    if(cadena !=NULL && length>0)
-    {
-        for(int i=0; cadena[i]!='\0' && i<length; i++)
-        {
-            if( (cadena[i]<'A' || cadena[i]>'Z') && (cadena[i]<'a' || cadena[i]>'z') && cadena[i] != ' ' && cadena[i] != '.' )
-            {
-                retorno=0;
-            }
-        }
-    }
-    return retorno;
-}
 
-void inputs_PedirNombreArchivo(char texto[],char textoError[],int max, char input[])
-{
-    char auxiliar[500];
+/** \brief Obtiene el valor del atributo  ID de la entidad eParticipant.
+ *
+ * \param this eParticipant*
+ * \param id int* Parametro de salida
+ * \return int Retorna [1] si se pudo obtener el valor [0] en caso de que no
+ *
+ */int eParticipant_getId(eParticipant* this,int* id);
 
-    printf("%s", texto);
-    fflush(stdin);
-    scanf("%[^\n]",auxiliar);
-    while(!inputs_isValidNameArchive(auxiliar,max)|| strlen(auxiliar)>max-1)
-    {
-        printf("%s", textoError);
-        fflush(stdin);
-        scanf("%[^\n]",auxiliar);
-    }
-     strcpy(input,auxiliar);
-}
+/** \brief   Setea el valor del atributo nombre de la entidad eParticipant
+ *
+ * \param this eParticipant*
+ * \param nombre char* Valor a asignar a ese atributo.
+ * \return int Retorna [1] si se pudo setear el valor [0] en caso de que no
+ *
+ */int eParticipant_setNombre(eParticipant* ,char* );
+
+/** \brief  Obtiene el valor del atributo NOMBRE de la entidad eParticipant.
+ *
+ * \param this eParticipant*
+ * \param nombre char* Parametro de salida
+ * \return int Retorna [1] si se pudo obtener el valor [0] en caso de que no
+ *
+ */int eParticipant_getNombre(eParticipant*,char*);
+
+
+/** \brief Setea el valor del atributo "horas trabajadas" de la entidad eParticipant
+ *
+ *
+ * \param this eParticipant*
+ * \param horasTrabajadas int Valor a asignar a ese atributo.
+ * \return int Retorna [1] si se pudo setear el valor [0] en caso de que no
+ *
+ */ int eParticipant_setHorasTrabajadas(eParticipant* this,int horasTrabajadas);
+
+
+/** \brief  Obtiene el valor del atributo "horasTrabajadas" de la entidad eParticipant.
+ *
+ * \param this eParticipant*
+ * \param horasTrabajadas int* Parametro de salida
+ * \return int Retorna [1] si se pudo obtener el valor [0] en caso de que no
+ *
+ */int eParticipant_getHorasTrabajadas(eParticipant* this,int* horasTrabajadas);
+
+
+/** \brief Setea el valor del atributo "sueldo" de la entidad eParticipant
+ *
+ * \param this eParticipant*
+ * \param sueldo int Valor a asignar a ese atributo.
+ * \return int Retorna [1] si se pudo setear el valor [0] en caso de que no
+ *
+ */int eParticipant_setSueldo(eParticipant* this,int sueldo);
+
+
+/** \brief Obtiene el valor del atributo "sueldo" de la entidad eParticipant.
+ *
+ * \param this eParticipant*
+ * \param sueldo int* Parametro de salida
+ * \return int  Retorna [1] si se pudo obtener el valor [0] en caso de que no
+ *
+ */int eParticipant_getSueldo(eParticipant* this,int* sueldo);
+
+/** \brief Imprime UNA entidad del tipo eParticipant con sus respectivos campos.
+ *
+ * \param empleado eParticipant*
+ * \return void
+ *
+ */void  eParticipant_showOneeParticipant(eParticipant* empleado);
+
+/** \brief Compara los sueldos de los empleados, establece un criterio de ordenamiento
+ *
+ * \param void*
+ * \param void*
+ * \return int Retorna  [1] si item1>item2
+                        [0] si item1=item2
+                        [-1] si item1<item2
+ *
+ */int eParticipant_CompareBySueldo(void* , void* );
+
+/** \brief Compara las horas trabajadas de los empleados, establece un criterio de ordenamiento
+ *
+ * \param void*
+ * \param void*
+ * \return int  [1] si item1>item2
+                [0] si item1=item2
+                [-1] si item1<item2
+ *
+ */int eParticipant_CompareByHoras(void* , void*);
+
+/** \brief  Compara los nombres de los empleados, establece un criterio de ordenamiento
+ *
+ * \param void*
+ * \param void*
+ * \return int  [1] si item1>item2
+                [0] si item1=item2
+                [-1] si item1<item2
+ *
+ */int eParticipant_compareByName(void* , void*);
+
+/** \brief  Compara los nombres de los empleados, establece un criterio de ordenamiento
+ *
+ * \param void*
+ * \param void*
+ * \return int [1] si item1>item2
+                [0] si item1=item2
+                [-1] si item1<item2
+ *
+ */int eParticipant_CompareById(void* , void*);
+int controller_participantsaveAsText(char* path, eParticipant* participante);
+
+
+#endif // employee_H_INCLUDED

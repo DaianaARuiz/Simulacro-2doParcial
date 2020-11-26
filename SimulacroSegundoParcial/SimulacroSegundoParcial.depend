@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1606221510 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"participantes.h"
+	"funcionesAuxiliares.h"
+	"parser.h"
+
+1606155665 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\linkedlist.h
+
+1606221593 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\participantes.h
+
+1606219992 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\funcionesauxiliares.h
+
+1606155503 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\parser.h
+
+1606225541 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\funcionesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+	"LinkedList.h"
+	"participantes.h"
+	"inputs.h"
+	"funcionesAuxiliares.h"
+
+1605827310 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\inputs.h
+
+1606155426 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\inputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"inputs.h"
+
+1606218741 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1606223571 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"participantes.h"
+	"inputs.h"
+
+1606221594 c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\controller.h
+
+1606185074 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"participantes.h"
+
+1606225621 source:c:\mis cosas\1. utn\simulacro-2doparcial\simulacrosegundoparcial\participantes.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"LinkedList.h"
+	"participantes.h"
+	"inputs.h"
+	"funcionesAuxiliares.h"
+
